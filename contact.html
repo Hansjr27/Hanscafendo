@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Contact Hans-Cafendo</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="contact/img/favicon.png" type="image/x-icon">
+
+    <!--=================== Google Fonts ====================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--=================== Remixicons ====================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=================== SwiperJS CSS ====================-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="contact/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+
+    <!-- style.css -->
+    <link rel="stylesheet" href="contact/css/style.css">
+
+    <!-- alpine js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">Hans<span>Cafendo</span>.</a>
+
+        <div class="navbar-nav d-inline-block ">
+            <a href="Home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Menu.html">Menu</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="navbar-extra">
+            <a href="#" id="search-button"><i data-feather="search"></i></a>
+            <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+
+        <!-- Search Form start -->
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box"><i data-feather="search"></i></label>
+        </div>
+        <!-- Search Form end -->
+        <!-- Shopping Cart start -->
+        <div class="shopping-cart">
+            <template x-for="(item, index) in $store.cart.items" x-key="index">
+                <div class="cart-item">
+                    <img :src="`asset/img/${item.img}`" :alt="item.name">
+                    <div class="item-detail">
+                        <h3 x-text="item.name"></h3>
+                        <div class="item-price">
+                            <span x-text="rupiah(item.price)"></span> &times;
+                            <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                            <span x-text="item.quantity"></span>
+                            <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                            <span x-text="item.total"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <h4 x-show="!$store.cart.items.length">Cart is Empty</h4>
+            <h4 x-show="!$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+        </div>
+        <!-- Shopping Cart end -->
+
+    </nav>
+    <!-- Navbar end -->
+    <!--===================== Contact =====================-->
+    <section class="container" id="contact" class="contact section section-bg">
+        <div class="section__header container">
+            <span class="section__subtitle">Kasih Saran</span>
+            <h2 class="section__title">Berilah Saran dan kritik anda tentang service dari Hans Cafendo</h2>
+        </div>
+        <div class="d-grid contact__wrapper container">
+            <form class="contact__form" action="https://formspree.io/f/meqbbway" method="post">
+                <div class="form__group">
+                    <label for="" class="form__label">Name</label>
+                    <input type="text" class="form__input" placeholder="Enter your name" required name="Name">
+                </div>
+                <div class="form__group">
+                    <label for="" class="form__label">Email</label>
+                    <input type="email" class="form__input" placeholder="Enter your email" required name="Email">
+                </div>
+                <div class="form__group">
+                    <label for="" class="form__label">Message</label>
+                    <textarea name="Message" class="form__input form__textarea "
+                        placeholder="Tell me about your project"></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary">Send Message</button>
+            </form>
+            <div class="d-grid contact__content">
+                <div class="contact__info">
+                    <div class="contact__icon">
+                        <i class="ri-phone-line"></i>
+                    </div>
+                    <div class="contact__info-wrapper">
+                        <h3 class="contact__title">Call:</h3>
+                        <p class="contact__description">(+62) 821 1935 3919</p>
+                    </div>
+                </div>
+                <div class="contact__info">
+                    <div class="contact__icon">
+                        <i class="ri-mail-line"></i>
+                    </div>
+                    <div class="contact__info-wrapper">
+                        <h3 class="contact__title">Email:</h3>
+                        <p class="contact__description">nakihansjr@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact__info">
+                    <div class="contact__icon">
+                        <i class="ri-map-pin-line"></i>
+                    </div>
+                    <div class="contact__info-wrapper">
+                        <h3 class="contact__title">Location:</h3>
+                        <p class="contact__description">Kota Banjar, Jawa barat, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=================== SwiperJS  ====================-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <!--=================== ScrollReveal ==================-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Feather Icons -->
+    <script>
+        feather.replace()
+    </script>
+
+    <!-- js bootsrtap -->
+    <script src="contact/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+
+    <!--=================== Main JS ====================-->
+    <script src="contact/js/main.js"></script>
+</body>
+
+</html>

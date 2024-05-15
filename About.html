@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>About Hans-Cafendo</title>
+
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="About/img/favicon.png" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="About/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+
+    <!-- style.css -->
+    <link rel="stylesheet" href="About/css/style.css">
+
+    <!-- alpine js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">Hans<span>Cafendo</span>.</a>
+
+        <div class="navbar-nav d-inline-block ">
+            <a href="Home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Menu.html">Menu</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="navbar-extra">
+            <a href="#" id="search-button"><i data-feather="search"></i></a>
+            <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+
+        <!-- Search Form start -->
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box"><i data-feather="search"></i></label>
+        </div>
+        <!-- Search Form end -->
+        <!-- Shopping Cart start -->
+        <div class="shopping-cart">
+            <template x-for="(item, index) in $store.cart.items" x-key="index">
+                <div class="cart-item">
+                    <img :src="`Menu/img/${item.img}`" :alt="item.name">
+                    <div class="item-detail">
+                        <h3 x-text="item.name"></h3>
+                        <div class="item-price">
+                            <span x-text="rupiah(item.price)"></span> &times;
+                            <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                            <span x-text="item.quantity"></span>
+                            <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                            <span x-text="item.total"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <h4 x-show="!$store.cart.items.length">Cart is Empty</h4>
+            <h4 x-show="!$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+        </div>
+        <!-- Shopping Cart end -->
+
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- hero section -->
+
+    <!-- content 1 -->
+    <div class="container col-xxl-8 px-4 py-5 " data-aos="fade-right">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="About/img/about-1.jpg" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <h2 class="fw-bold display-5">Sejarah Terbentuknya cafe HansCafendo.</h2>
+                    </div>
+                </div>
+
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <p class="lead">Pertama kali terbentuknya HansCafendo pada tahun 2023 awal bulan. pada waktu itu
+                            cafe ini masih sangat kecil lambat laun menjadi berkembang seperti sekarang.(ini hanya
+                            cerita fiktip).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- content 2 -->
+    <div class="container content-2 col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <h2 class="fw-bold display-5">Perkembangan HansCafendo.</h2>
+                    </div>
+                </div>
+
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <p class="lead">cukup berkembang di HansCafendo banyak terobosan-terobosan yang bagus di
+                            HansCafendo. perkembangan HansCafendo ini termasuk perkembangan yang bagus dari awl taun
+                            sampai sekarang. (ini hanya cerita fiktip).
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="About/img/about-2.jpg" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <!-- content 3 -->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="About/img/about-3.jpg" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <h2 class="fw-bold display-5">Terobosan Terbaru Dari HansCafendo.</h2>
+                    </div>
+                </div>
+
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <p class="lead">Banyak sekali terobosan di HansCafendo. salah satu terobosan yang paling berasa
+                            yaitu tentang fasilitas cafe dan pelayanannya semakin membaik setiap harinya. (ini hanya
+                            cerita fiktip).
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- jabatan -->
+    <div class="container jabatan">
+        <div class="row">
+
+            <div class="col-md-12 text-center">
+                <div class="lc-block mb-4">
+                    <span editable="inline" class="small mt-4 d-block">HansCafendo</span>
+                    <h2 editable="inline" class="display-2 mb-0"><b>Team</b></h2>
+                    <p editable="inline">Yang menjabat di hanscafendo cukup banyak tapi tiga orang dibawah ini adalah
+                        <br>
+                        pendiri dari HansCafendo. (ini hanya cerita fiktip).
+                    </p>
+                </div><!-- /lc-block -->
+            </div>
+
+        </div>
+
+        <div class="row pt-4">
+            <div class="col-md-4 text-center py-4">
+                <!-- foto 1 -->
+                <div class="lc-block"><img alt="" class="rounded-circle mb-3" src="About/img/mauby.jpg"
+                        style="height:10vh" loading="lazy">
+                    <h5 editable="inline"><strong>Mauby Purnama Aprilianto</strong></h5>
+                    <small editable="inline" class="text-secondary" style="letter-spacing:1px">Ceo of
+                        HansCafendo</small>
+                </div>
+                <div class="lc-block mt-2 border-top">
+                    <div editable="rich">
+                        <p>Ceo Atau pemimpin dari perusahaan HansCafendo. dan dia ini salah satu pendiri dari
+                            HansCafendo. (ini hanya cerita fiktip).</p>
+                    </div>
+                </div>
+            </div>
+            <!-- foto 2 -->
+            <div class="col-md-4 text-center py-4">
+                <div class="lc-block"><img alt="" class="rounded-circle mb-3" src="About/img/Syehan.jpg"
+                        style="height:10vh" loading="lazy">
+                    <h5 editable="inline"><strong>Syehan Safaril Mujib</strong></h5>
+                    <small editable="inline" class="text-secondary" style="letter-spacing:1px">Owner of
+                        HansCafendo</small>
+                </div>
+                <div class="lc-block mt-2 border-top">
+                    <div editable="rich">
+                        <p>Owner Atau pemilik dari perusahaan HansCafendo. dan dia ini salah satu pendiri dari
+                            HansCafendo. (ini hanya cerita fiktip).</p>
+                    </div>
+                </div><!-- /lc-block -->
+
+            </div>
+            <!-- foto 3 -->
+            <div class="col-md-4 text-center py-4">
+                <div class="lc-block"><img alt="" class="rounded-circle mb-3" src="About/img/bagus.jpg"
+                        style="height:10vh" loading="lazy">
+                    <h5 editable="inline"><strong>Bagus Ari Prasaja</strong></h5>
+                    <small editable="inline" class="text-secondary" style="letter-spacing:1px">Manager of
+                        HansCafendo</small>
+                </div>
+                <div class="lc-block mt-2 border-top">
+                    <div editable="rich">
+                        <p>Manager Atau pendamping pemimpin dari perusahaan HansCafendo. dan dia ini salah satu pendiri
+                            dari
+                            HansCafendo. (ini hanya cerita fiktip).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer start -->
+    <footer>
+        <div class="socials">
+            <a href="#"><i data-feather="instagram"></i></a>
+            <a href="#"><i data-feather="twitter"></i></a>
+            <a href="#"><i data-feather="facebook"></i></a>
+        </div>
+
+        <div class="links">
+            <a href="Home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Menu.html">Menu</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="credit">
+            <p>Created by <a href="https://portfolio-syehan27.netlify.app/">Syehan27</a>. | &copy; 2023.</p>
+        </div>
+    </footer>
+    <!-- Footer end -->
+
+
+    <!-- Feather Icons -->
+    <script>
+        feather.replace()
+    </script>
+
+
+    <!-- js bootsrtap -->
+    <script src="About/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+
+    <!-- My Javascript -->
+    <script src="About/js/main.js"></script>
+</body>
+
+</html>
